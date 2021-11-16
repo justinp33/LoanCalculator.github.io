@@ -42,8 +42,8 @@ function update() {
 // calculate the monthly payment.  The output should be a string
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
-  const monthlyRate = (values.rate / 100) / 12;
-  const monthlyTerm = Math.floor(values.years * 12);
+  const monthlyRate = calculateMonthlyRate(values.rate);
+  const monthlyTerm = calculateMonthlyTerm(values.years);
   return ( 
     (values.amount * monthlyRate) / (1-Math.pow((1 + monthlyRate), -monthlyTerm))).toFixed(2);
   //return (monthlyPmt);
@@ -54,6 +54,14 @@ function calculateMonthlyPayment(values) {
 function updateMonthly(monthly) {
   const updatedMonthlyPmt = document.getElementById("monthly-payment");
   updatedMonthlyPmt.innerText = "$" + monthly;
+}
+
+function calculateMonthlyRate(yearlyRate) {
+  return (yearlyRate / 100) / 12;
+}
+
+function calculateMonthlyTerm(years) {
+  return Math.floor(years * 12);
 }
 
 
