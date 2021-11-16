@@ -2,8 +2,8 @@
 
 describe('Monthly Payment Calculations', function() {
   it('should calculate the monthly pmt correctly', function () {
-    const values = {amount: 10000, years: 1, rate: 1};
-    expect(calculateMonthlyPayment(values)).toEqual('837.85');
+    const values = {amount: 10000, years: 3, rate: 3};
+    expect(calculateMonthlyPayment(values)).toEqual('290.81');
 });
 
   it('should calculate the monthly rate correctly', function() {
